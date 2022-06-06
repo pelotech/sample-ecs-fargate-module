@@ -1,0 +1,24 @@
+[
+  {
+    "image": "${image}",
+    "name": "app",
+    "essential": true,
+    "command": ${command},
+  "environment": ${environment_variables_json},
+  "secrets": ${secrets_from_json},
+  "logConfiguration": {
+  "logDriver": "awslogs",
+  "options": {
+    "awslogs-group": "${log_name}",
+    "awslogs-region": "${region}",
+    "awslogs-stream-prefix": "${name}"
+  }
+},
+  "portMappings": [
+  {
+    "containerPort": ${application_port},
+  "protocol": "tcp"
+  }
+]
+}
+]
